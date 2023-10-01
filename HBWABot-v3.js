@@ -1795,10 +1795,6 @@ let anu = await TelegraPh(media)
 let link = util.format(anu)
 let englo = await getBuffer(`https://api.lolhuman.xyz/api/imagetoanime?apikey=haikalgans&img=${link}`)
 HBWABotInc.sendMessage(from, { image : englo }, { quoted:m })
-catch (error) {
-      console.error(error)
-      replyherbertstyle(`Hei hi ${prefix + command} thei a ni lo, a chhan chu effect hman vang emaw i hmel a la chian loh vang a ni`)
-    }
 }
 break
 
