@@ -1785,6 +1785,18 @@ if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
             HBWABotInc.sendMessage(m.chat, { image: {url: results.image_data}, caption: mess.success}, { quoted: m})
 }
 break
+case 'remini2': case 'hd': {
+if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
+			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
+			await loading()
+            const { remini } = require('betabotz-tools')
+            let downloadrawh = await quoted.download()
+            let results = await remini(downloadrawh)
+            console.log(results) //json
+            HBWABotInc.sendMessage(m.chat, { image: {url: results.image_data}, caption: mess.success}, { quoted: m})
+}
+break
+
 case 'toanime': case 'tocartoon': {
 if (!quoted) return replyherbertstyle(`Thlalak rawn dah rawh`)
 			if (!/image/.test(mime)) return replyherbertstyle(`Thlalak Send/Reply in a caption ah ${prefix + command} tih hi rawn dah rawh`)
