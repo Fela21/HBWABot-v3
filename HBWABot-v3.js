@@ -3477,25 +3477,33 @@ HBWABotInc.sendMessage(m.chat, { video: { url: videoUrl }, caption: caption, mim
   break         
   case 'igvideo': case 'instavid': case 'igvid': {
 			if (args.length == 0) return reply(`Example: ${prefix + command} https://www.instagram.com/tv/CXwPLSIFDW0/?igshid=NTc4MTIwNjQ2YQ==`)
+			await loadingreact()
 			let downloadrawh = await axios.get(`https://api.lolhuman.xyz/api/instagram?apikey=haikalgans&url=${args[0]}`)
-			
+			await uploadreact()		
 HBWABotInc.sendMessage(from, { video: { url: downloadrawh.data.result }, mimetype: 'video/mp4', caption : `*I N S T A G R A M*`}, { quoted: m })
+await finishreact()
 }
 			break
 			
 case 'fbvideo': case 'fbvid':{
 if (args.length == 0) return replyherbertstyle (`A link rawn dah tel rawh\n\nTiang hian: ${prefix + command} https://www.facebook.com/groups/2616981278627207/permalink/3572542609737731/?mibextid=Nif5oz`)
-			let downloadrawh2 = axios.get(`https://api.lolhuman.xyz/api/facebook?apikey=haikalgans&url=${args[0]}`) 
-			let engmah = downloadrawh2(result.link.length)
-HBWABotInc.sendMessage(from, { video: { url: engmah.result }, mimetype: 'video/mp4', caption : `*F A C E   B O O O K*`}, { quoted: m })
+await loadingreact()
+			let englo = axios.get(`https://api.lolhuman.xyz/api/facebook?apikey=haikalgans&url=${args[0]}`)
+			await uploadreact()
+			let engmaw= englo.result.link[englo.result.link.length - 1].link
+HBWABotInc.sendMessage(from, { video: { url: engmaw }, mimetype: 'video/mp4', caption : `*F A C E - B O O OK*`}, { quoted: m })
+await finishreact()
 }
 break
 			
 			case 'twitvideo': case 'twitvid': {
-			if (args.length == 0) return replyherbertstyle(`A link rawn dah tel rawh\n\nTiang hian: ${prefix + command} https://twitter.com/gofoodindonesia/status/1229369819511709697`)
-			let downloadrawh3 = axios.get(`https://api.lolhuman.xyz/api/twitter?apikey=haikalgans&url=${args[0]}`) 
-			let engmah = downloadrawh3(result.link.length)
-HBWABotInc.sendMessage(from, { video: { url: engmah.result }, mimetype: 'video/mp4', caption : `*T W I T T E R*`}, { quoted: m })
+			if (args.length == 0) return replyherbertstyle(`A link rawn dah tel rawh\n\nTiang hian: ${prefix + command} https://www.facebook.com/groups/2616981278627207/permalink/3572542609737731/?mibextid=Nif5oz`)
+			await loadingreact()
+			let englo = axios.get(`https://api.lolhuman.xyz/api/twitter?apikey=haikalgans&url=${args[0]}`)
+			await uploadreact()
+            let engmaw = englo.result.link[englo.result.link.length - 1].link
+HBWABotInc.sendMessage(from, { video: { url: engmaw }, mimetype: 'video/mp4', caption : `*T W I T T E R*`}, { quoted: m })
+await finishreact()
 }
 			break
   
@@ -3508,7 +3516,7 @@ HBWABotInc.sendMessage(from, { video: { url: engmah.result }, mimetype: 'video/m
         console.log(data)
         await uploadreact()
 await HBWABotInc.sendMessage(m.chat,{
-    video: {url: data },
+    video: data ,
     caption: "Tiktok Videos download by HBWABot"
 }, {quoted:m})
 await finishreact()
