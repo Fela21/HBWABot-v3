@@ -957,6 +957,25 @@ displayName: `${list.length} Contact`,
 contacts: list }, mentions: [sender] }, { quoted: herbert })
 }
 break
+
+case 'autostatus': case 'auto-status': case 'statusevent': case 'autostatusseen':
+if (!HerbertTheCreator) return m.reply(mess.owner)
+if (args.length === 0) { return replyherbert(`Tunah chuan auto status view chu ${global.statusseen ? 'enabled' : 'disabled'} a ni.`)
+} 
+  else if (args.length === 1 && (args[0] === 'on' || args[0] === 'off')) {
+  const status = args[0]
+  if (status === 'on') {
+  global.statusseen = true
+ return replyherbertstyle('Auto-Status chu on an ni.')
+} else {
+  global.statusseen = false
+return replyherbertstyle('Auto-Status chu off a ni.')
+          }
+        } else {
+          return replyherbertstyle(`Tiang hian hman tur: ${command}autostatus [on/off]`)
+        }
+        break
+
 case 'herbert': case 'hbwabot': case '/bot': { 
         let audiobuffy = fs.readFileSync(`./HBMedia/audio/Herbert.mp3`)
 HBWABotInc.sendMessage(m.chat, { audio: audiobuffy, mimetype: 'audio/mp4', ptt: true }, { quoted: m })  
