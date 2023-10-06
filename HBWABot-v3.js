@@ -1627,7 +1627,7 @@ contextInfo:{
 },{quoted:m})
 }
 break
-case 'whatsapp': case 'hbmods': case 'update': case 'fouad': { 
+case 'hbmods': case 'fouad': case 'mod': case 'mods': { 
 var hbmodspng = await getBuffer(`https://i.imgur.com/SfP3f4M.png `)
 HBWABotInc.sendMessage(from, { 
 text: ` *WhatsApp Fouad Mod Latest Version*\nhttps://herbert70.blogspot.com/search/label/FouadMods?m=1\nDeveloped by HBMods Apk Store`,
