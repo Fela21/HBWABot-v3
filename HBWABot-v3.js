@@ -354,7 +354,7 @@ const dodoi = (teks) => {
             HBWABotInc.sendMessage(m.chat, { text: teks}, { quoted: m})
         }
 const replyherbertstyle = (teks) => {
-           HBWABotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "title": `${global.botname}`,"body": `SUB HBMods OFC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./HBWABot.png`),"sourceUrl": `${ownerweb}`}}}, { quoted: m})
+           HBWABotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "title": `${global.botname}`,"body": `SUB HBMods OFC`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./HBWABot.png`),"sourceUrl": `https://youtube.com/@HBMods_Channel`}}}, { quoted: m})
         }
 const replymizobiblequotes = (teks) => {
            HBWABotInc.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "title": `Mizo Bible Quotes`,"body": `HBWABot`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./MizoBibleQ.png`),"sourceUrl": `https://instagram.com/mizo_bible_quote`}}}, { quoted: m})
@@ -473,7 +473,6 @@ quoted:m
 		const fvideo = {key: { fromMe: false,participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "status@broadcast" } : {}) },message: { "videoMessage": { "title":botname, "h": wm,'seconds': '359996400', 'caption': `${pushname}`, 'jpegThumbnail': thumb}}}
 		const floc = {key : {participant : '0@s.whatsapp.net', ...(m.chat ? { remoteJid: `status@broadcast` } : {}) },message: {locationMessage: {name: wm,jpegThumbnail: thumb}}}
 		const fkontak = { key: {participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `status@broadcast` } : {}) }, message: { 'contactMessage': { 'displayName': ownername, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${ownername},;;;\nFN:${ownername}\nitem1.TEL;waid=918416093656:918416093656\nitem1.X-ABLabel:Mobile\nEND:VCARD`, 'jpegThumbnail': thumb, thumbnail: thumb,sendEphemeral: true}}}
-	    const fakestatus = {key: {fromMe: false,participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: "status@broadcast" } : {})},message: { "imageMessage": {"url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc","mimetype": "image/jpeg","caption": wm,"fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=","fileLength": "28777","height": 1080,"width": 1079,"mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=","fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=","directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69","mediaKeyTimestamp": "1610993486","jpegThumbnail": fs.readFileSync('./HBMedia/theme/hbwabot.png'),"scansSidecar": "1W0XhfaAcDwc7xh1R8lca6Qg/1bB4naFCSngM2LKO2NoP5RI7K+zLw=="}}}
 
 if (isCmd && isBanned) {
 return banRep()
@@ -489,7 +488,6 @@ list.push({
  ${ytname}\nitem2.X-ABLabel:YouTube\nitem3.URL:${socialm}\nitem3.X-ABLabel:IG\nitem4.ADR:;;India;Mizoram Aizawl ;;;\nitem4.X-ABLabel:Region\nEND:VCARD`
 	    })
 	}
-	
 	
 const repPy = {
 	key: {
@@ -957,24 +955,6 @@ displayName: `${list.length} Contact`,
 contacts: list }, mentions: [sender] }, { quoted: herbert })
 }
 break
-
-case 'autostatus': case 'auto-status': case 'statusevent': case 'autostatusseen':
-if (!HerbertTheCreator) return m.reply(mess.owner)
-if (args.length === 0) { return replyherbert(`Tunah chuan auto status view chu ${global.statusseen ? 'enabled' : 'disabled'} a ni.`)
-} 
-  else if (args.length === 1 && (args[0] === 'on' || args[0] === 'off')) {
-  const status = args[0]
-  if (status === 'on') {
-  global.statusseen = true
- return replyherbertstyle('Auto-Status chu on an ni.')
-} else {
-  global.statusseen = false
-return replyherbertstyle('Auto-Status chu off a ni.')
-          }
-        } else {
-          return replyherbertstyle(`Tiang hian hman tur: ${command}autostatus [on/off]`)
-        }
-        break
 
 case 'herbert': case 'hbwabot': case '/bot': { 
         let audiobuffy = fs.readFileSync(`./HBMedia/audio/Herbert.mp3`)

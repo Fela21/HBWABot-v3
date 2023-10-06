@@ -549,7 +549,7 @@ HBWABotInc.sendFile = async (jid, path, filename = '', caption = '', quoted, ptt
                     catch (e) { if (e.json) throw e.json }
                 }
                 const fileSize = fs.statSync(pathFile).size / 1024 / 1024
-                if (fileSize >= 1800) throw new Error(' The file size is too large\n\n')
+                if (fileSize >= 1800) throw new Error(' A file size a lian lutuk\n\n')
                 let opt = {}
                 if (quoted) opt.quoted = quoted
                 if (!type) options.asDocument = true
