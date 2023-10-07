@@ -3483,31 +3483,23 @@ HBWABotInc.sendMessage(from, { video: { url: downloadrawh.data.result }, mimetyp
 await finishreact()
 }
 			break
-			
-case 'fbvideo': case 'fbvid':{
-if (args.length == 0) return replyherbertstyle (`A link rawn dah tel rawh\n\nTiang hian: ${prefix + command} https://www.facebook.com/groups/2616981278627207/permalink/3572542609737731/?mibextid=Nif5oz`)
-await loadingreact()
-			let englo = await fetch (`https://api.lolhuman.xyz/api/facebook?apikey=haikalgans&url=${args[0]}`)
-			let engmaw = await englo.json()
-			await uploadreact()
-HBWABotInc.sendMessage(from, { video: engmaw.result, mimetype: 'video/mp4', caption : `*F A C E - B O O OK*`}, { quoted: m })
-await finishreact()
-}
-break
-			
-			case 'twitvideo': case 'twitvid': {
-			if (args.length == 0) return replyherbertstyle(`A link rawn dah tel rawh\n\nTiang hian: ${prefix + command} https://www.facebook.com/groups/2616981278627207/permalink/3572542609737731/?mibextid=Nif5oz`)
-			await loadingreact()
-			let englo = await fetch(`https://api.lolhuman.xyz/api/twitter?apikey=haikalgans&url=${args[0]}`)
-			await uploadreact()
-            let engmaw = await englo.json()
-            let engmah = engmaw.result
-            const chutiami = engmah[Math.floor(Math.random() * engmah.length)]
-			await uploadreact()
-HBWABotInc.sendMessage(from, { video: { url: chutiami}, mimetype: 'video/mp4', caption : `*T W I T T E R*`}, { quoted: m })
-await finishreact()
-}
+
+case 'fbvideo': case 'fbvid':
+			if (args.length == 0) return replyherbertstyle(`A link rawn dah tel rawh\n\nTiang hian: ${prefix + command} https://id-id.facebook.com/SamsungGulf/videos/video-bokeh/561108457758458/`)
+			await finishreact()
+			axios.get(`https://api.lolhuman.xyz/api/facebook?apikey=haikalgans&url=${args[0]}`).then(({ data }) => {
+				HBWABotInc.sendMessage(from, { video: { url: data.result.link[data.result.link.length - 1].link }, mimetype: 'video/mp4', caption : `*F A C E - B O O O K*` })
+			})
 			break
+			
+			case 'twitvideo': case 'twitvid': 
+			if (args.length == 0) return replyherbertstyle(`A link rawn dah tel rawh\n\nTiang hian: ${prefix + command} https://twitter.com/gofoodindonesia/status/1229369819511709697`)
+			await finishreact()
+			axios.get(`https://api.lolhuman.xyz/api/twitter?apikey=haikalgans&url=${args[0]}`).then(({ data }) => {
+				HBWABotInc.sendMessage(from, { video: { url: data.result.link[data.result.link.length - 1].link }, mimetype: 'video/mp4' })
+			})
+			break
+			
   
   case 'tiktokvid' : case 'ttvid':  {
   if (!text) return replyherbertstyle(`A link rawn dah tel rawh\n\nTiang hian: ${prefix + command} https://www.tiktok.com/@omagadsus/video/7025456384175017243?is_from_webapp=1&sender_device=pc&web_id6982004129280116226`)
