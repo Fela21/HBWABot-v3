@@ -3490,7 +3490,7 @@ await loadingreact()
 			let englo = await fetch (`https://api.lolhuman.xyz/api/facebook?apikey=haikalgans&url=${args[0]}`)
 			let engmaw = await englo.json()
 			await uploadreact()
-HBWABotInc.sendMessage(from, { video: engmaw.result }, mimetype: 'video/mp4', caption : `*F A C E - B O O OK*`}, { quoted: m })
+HBWABotInc.sendMessage(from, { video: engmaw.result, mimetype: 'video/mp4', caption : `*F A C E - B O O OK*`}, { quoted: m })
 await finishreact()
 }
 break
