@@ -3487,10 +3487,10 @@ await finishreact()
 case 'fbvideo': case 'fbvid':{
 if (args.length == 0) return replyherbertstyle (`A link rawn dah tel rawh\n\nTiang hian: ${prefix + command} https://www.facebook.com/groups/2616981278627207/permalink/3572542609737731/?mibextid=Nif5oz`)
 await loadingreact()
-			let englo = axios.get(`https://api.lolhuman.xyz/api/facebook?apikey=haikalgans&url=${args[0]}`)
+			let englo = await fetch (`https://api.lolhuman.xyz/api/facebook?apikey=haikalgans&url=${args[0]}`)
+			let engmaw = await englo.json()
 			await uploadreact()
-			let engmaw= englo.result.link[englo.result.link.length - 1].link
-HBWABotInc.sendMessage(from, { video: { url: engmaw }, mimetype: 'video/mp4', caption : `*F A C E - B O O OK*`}, { quoted: m })
+HBWABotInc.sendMessage(from, { video: { url: engmaw.result }, mimetype: 'video/mp4', caption : `*F A C E - B O O OK*`}, { quoted: m })
 await finishreact()
 }
 break
@@ -3498,10 +3498,11 @@ break
 			case 'twitvideo': case 'twitvid': {
 			if (args.length == 0) return replyherbertstyle(`A link rawn dah tel rawh\n\nTiang hian: ${prefix + command} https://www.facebook.com/groups/2616981278627207/permalink/3572542609737731/?mibextid=Nif5oz`)
 			await loadingreact()
-			let englo = axios.get(`https://api.lolhuman.xyz/api/twitter?apikey=haikalgans&url=${args[0]}`)
+			let englo = await fetch(`https://api.lolhuman.xyz/api/twitter?apikey=haikalgans&url=${args[0]}`)
 			await uploadreact()
-            let engmaw = englo.result.link[englo.result.link.length - 1].link
-HBWABotInc.sendMessage(from, { video: { url: engmaw }, mimetype: 'video/mp4', caption : `*T W I T T E R*`}, { quoted: m })
+            let engmaw = await englo.json()
+			await uploadreact()
+HBWABotInc.sendMessage(from, { video: { url: engmaw.result }, mimetype: 'video/mp4', caption : `*T W I T T E R*`}, { quoted: m })
 await finishreact()
 }
 			break
@@ -3522,6 +3523,38 @@ await finishreact()
   
   }
   break
+  case 'setppbot': case 'setbotpp': {
+if (!HerbertTheCreator) return m.reply(mess.owner)
+if (!quoted) return replyherbertstyle(`Send emaw reply in a caption ah tiang hian rawn dah rawh: ${prefix + command}`)
+if (!/image/.test(mime)) return replyherbertstyle(`Send emaw reply in a caption ah tiang hian rawn dah rawh : ${prefix + command}`)
+if (/webp/.test(mime)) return replyherbertstyle(`Send emaw reply in a caption sh tiang hian rawn dah rawh : ${prefix + command}`)
+var dptur = await HBWABotInc.downloadAndSaveMediaMessage(quoted, 'ppbot.jpeg')
+if (args[0] == `full`) {
+var { img } = await reSize(dptur)
+await HBWABotInc.query({
+tag: 'iq',
+attrs: {
+to: botNumber,
+type:'set',
+xmlns: 'w:profile:picture'
+},
+content: [
+{
+tag: 'picture',
+attrs: { type: 'image' },
+content: img
+}
+]
+})
+fs.unlinkSync(dptur)
+replyherbertstyle(`Success`)
+} else {
+var memeg = await HBWABotInc.updateProfilePicture(botNumber, { url: dptur })
+fs.unlinkSync(dptur)
+replyherbertstyle(`Success`)
+}
+}
+break
   
 case 'igstalk': {
 if (!args[0]) return replyherbertstyle(`Instagram Username rawn dah rawh\n\nTiang hian: ${prefix + command} herbert_suantak2`)
