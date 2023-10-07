@@ -3490,7 +3490,7 @@ await loadingreact()
 			let englo = await fetch (`https://api.lolhuman.xyz/api/facebook?apikey=haikalgans&url=${args[0]}`)
 			let engmaw = await englo.json()
 			await uploadreact()
-HBWABotInc.sendMessage(from, { video: { url: engmaw.result }, mimetype: 'video/mp4', caption : `*F A C E - B O O OK*`}, { quoted: m })
+HBWABotInc.sendMessage(from, { video: engmaw.result }, mimetype: 'video/mp4', caption : `*F A C E - B O O OK*`}, { quoted: m })
 await finishreact()
 }
 break
@@ -3501,8 +3501,10 @@ break
 			let englo = await fetch(`https://api.lolhuman.xyz/api/twitter?apikey=haikalgans&url=${args[0]}`)
 			await uploadreact()
             let engmaw = await englo.json()
+            let engmah = engmaw.result
+            const chutiami = engmah[Math.floor(Math.random() * engmah.length)]
 			await uploadreact()
-HBWABotInc.sendMessage(from, { video: { url: engmaw.result }, mimetype: 'video/mp4', caption : `*T W I T T E R*`}, { quoted: m })
+HBWABotInc.sendMessage(from, { video: { url: chutiami}, mimetype: 'video/mp4', caption : `*T W I T T E R*`}, { quoted: m })
 await finishreact()
 }
 			break
