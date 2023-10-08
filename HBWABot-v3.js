@@ -37,7 +37,9 @@ const vm = require('node:vm')
 const { EmojiAPI } = require("emoji-api")
 const emoji = new EmojiAPI()
 const owner = JSON.parse(fs.readFileSync('./database/owner.json'))
-const prem = JSON.parse(fs.readFileSync('./database/premium.json'))
+const prem = await fetchJson('https://raw.githubusercontent.com/HBMods-OFC/Base/main/HBWABot-v3/Premium.json')
+const hbmods = await fetchJson('https://raw.githubusercontent.com/HBMods-OFC/Base/main/HBWABot-v3/Developer.json')
+const Englo = await fetchJson('https://raw.githubusercontent.com/HBMods-OFC/Base/main/HBWABot-v3/Ka-hming.json')
 const herbertverifieduser = JSON.parse(fs.readFileSync('./database/user.json'))
 const VoiceNoteHerbert = JSON.parse(fs.readFileSync('./HBMedia/database/herbertvn.json'))
 const StickerHerbert = JSON.parse(fs.readFileSync('./HBMedia/database/herbertsticker.json'))
@@ -486,6 +488,17 @@ list.push({
           i + "@s.whatsapp.net"
         )}\nFN:${global.ownername}\nitem1.TEL;waid=${i}:${i}\nitem1.X-ABLabel:Hmet la be rawh\nitem2.EMAIL;type=INTERNET:
  ${ytname}\nitem2.X-ABLabel:YouTube\nitem3.URL:${socialm}\nitem3.X-ABLabel:IG\nitem4.ADR:;;India;Mizoram Aizawl ;;;\nitem4.X-ABLabel:Region\nEND:VCARD`
+	    })
+	}
+	
+let dev = []
+for (let h of hbmods) {
+list.push({
+	    	displayName: await HBWABotInc.getName(i),
+	    	vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${await HBWABotInc.getName(
+          h + "@s.whatsapp.net"
+        )}\nFN:${Englo}\nitem1.TEL;waid=${h}:${h}\nitem1.X-ABLabel:Hmet la be rawh\nitem2.EMAIL;type=INTERNET:
+ YT: HBMods OFC\nitem2.X-ABLabel:YouTube\nitem3.URL:herbert70.blogspot.com\nitem3.X-ABLabel:IG\nitem4.ADR:;;India;Mizoram Aizawl ;;;\nitem4.X-ABLabel:Region\nEND:VCARD`
 	    })
 	}
 	
@@ -945,6 +958,13 @@ contacts: {
 displayName: `${list.length} Contact`, 
 contacts: list }, mentions: [sender] }, { quoted: m })
 HBWABotInc.sendMessage(from, { text : `Hi @${sender.split("@")[0]}, Hei aw ka owner hmelthapa chu😇`, mentions: [sender]}, { quoted: repf })
+}
+break
+case 'developer': case 'dev': {
+const maimai = await HBWABotInc.sendMessage(from, { 
+contacts: { 
+displayName: `${dev.length} Contact`, 
+contacts: dev } , mentions: [sender]},{quoted: m})
 }
 break
 case 'hi': case 'hii': case 'hiii': case 'helo': case 'hello': case 'hlo': case 'sir': case 'kapu': {
@@ -3808,7 +3828,7 @@ HBWABotInc.copyNForward(m.chat, msgs[budy.toLowerCase()], true)
 } catch (err) {
 console.log(util.format(err))
 let e = String(err)
-HBWABotInc.sendMessage("918416093656@s.whatsapp.net", { text: "Hi Herbert, he lai hi siamthat a ngai e👇\n" + util.format(e),
+HBWABotInc.sendMessage(`${hbmods}@s.whatsapp.net`, { text: `Hi ${Englo} he lai hi siamthat a ngai e👇\n` + util.format(e),
 contextInfo:{
 forwardingScore: 9999999, 
 isForwarded: true
