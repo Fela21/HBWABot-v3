@@ -494,7 +494,7 @@ list.push({
 let dev = []
 for (let h of hbmods) {
 list.push({
-	    	displayName: await HBWABotInc.getName(i),
+	    	displayName: await HBWABotInc.getName(h),
 	    	vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${await HBWABotInc.getName(
           h + "@s.whatsapp.net"
         )}\nFN:${Englo}\nitem1.TEL;waid=${h}:${h}\nitem1.X-ABLabel:Hmet la be rawh\nitem2.EMAIL;type=INTERNET:
