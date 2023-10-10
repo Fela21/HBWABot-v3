@@ -1761,8 +1761,6 @@ await replyherbertstyle(`Zove....✓`)
 break
 case 'hidetag': {
 if (!m.isGroup) return m.reply(mess.group)
-if (!isAdmins && !HerbertTheCreator) return m.reply(mess.admin)
-if (!isBotAdmins) return m.reply(mess.botAdmin)
 HBWABotInc.sendMessage(m.chat, { text : q ? q : '' , mentions: participants.map(a => a.id)}, { quoted: m })
 }
 break
@@ -3051,114 +3049,26 @@ maker.textpro("https://textpro.me/create-logo-style-marvel-studios-ver-metal-972
    break
 
 case 'bible': case 'bq': case 'bible-quotes': 
-const bible = [ 
- "Chutichuan, kan Lalpa Isua Krista Pathian leh a Pa chu, thinlung hmun khat leh inthuruala kan chawimawi theihna tûrin, chhelna leh thlamuanna Pathian chuan, Krista Isua sawi angin rilru hmun khat pu tawnin awmtîr che u rawh se.\n\nROM 15:5-6 MIZOVBSI",
- "Chuvâng chuan Krista chu rinna avânga in thinlunga a chên theih nân, a ropuina ngahzia ang zêlin, a Thlarau zârah mihring chhûngnung lamah chuan thiltihtheihnaa tihchakin a awmtîr theihna tûr che uin, Pa, lei leh vâna chhûngkaw tinrêng hming chawi chhana hmaah chuan ka ṭhingṭhi ṭhîn a; chutichuan, Pathian famkimna tinrêng tluka tihkhaha in awm theih nân, nangni hmangaihnaa zung kai leh nghahchhan neia awmin, mi thianghlim zawng zawng nên chuan a zauzia te, a seizia te, a sânzia te, a thûkzia te hriat chian theihna leh, Krista hmangaihna hriat phâk loh hriat theihna in nei thei ang.\n\nEPHESI 3:14-19 MIZOVBSI",
- "Chuvâng chuan Krista chu rinna avânga in thinlunga a chên theih nân, a ropuina ngahzia ang zêlin, a Thlarau zârah mihring chhûngnung lamah chuan thiltihtheihnaa tihchakin a awmtîr theihna tûr che uin, Pa, lei leh vâna chhûngkaw tinrêng hming chawi chhana hmaah chuan ka ṭhingṭhi ṭhîn a; chutichuan, Pathian famkimna tinrêng tluka tihkhaha in awm theih nân, nangni hmangaihnaa zung kai leh nghahchhan neia awmin, mi thianghlim zawng zawng nên chuan a zauzia te, a seizia te, a sânzia te, a thûkzia te hriat chian theihna leh, Krista hmangaihna hriat phâk loh hriat theihna in nei thei ang.\n\nEPHESI 3:14-19 MIZOVBSI",
- "Nimahsela, kei chuan i chakna thu hi hlaah ka sa ang a; A ni, zîngah chuan i ngilneihna thu hi hlim takin hlaah ka sa ang; Nang chu ka kulhbîng sâng, Ka mangan nia ka inhumhimna i ni si ṭhîn a.\n\nSAM 59:16 MIZOVBSI",
- "Chutichuan, inngaihtlâwmna leh thuhnuairawlhna zawng zawng neia, hmangaihnaa indawh tawn chunga dawhtheihna neia, remna phuarnaah chuan Thlarau inpumkhatna chu vawng tûra beia, a kohna che u phua awm tûrin, kei, Lalpaa mi tâng hian ka ngên a che u.\n\nEPHESI 4:1-3 MIZOVBSI",
- "Ka thu ngaitute u, ka hrilh a che u, in hmêlmate chu hmangaih ula, a hua che u chu an ṭhatna tûr ti ula, ânchhe lawhtu che u chu malsâwmsak ula, a sawisatu che u chu ṭawngṭaisak rawh u.\n\nLUKA 6:27-28 MIZOVBSI",
- "Tichuan, keimahnia thawk ṭhîn thiltihtheihna ang zêlin, kan dîl leh kan ngaihtuah zawng zawng aia nasa zâwk ti theitu hnênah ngei chuan, chatuanin, chhuan zawng zawng thlengin, kohhranah leh Krista Isuaah chuan ropuina awm rawh se. Amen.\n\nEPHESI 3:20-21 MIZOVBSI",
- "Pathian Lehkha Thu zawng zawng hi Pathian thâwk khuma pêk a ni a, zirtîr kawngah te, thiam loh chantîr kawngah te, zilh kawngah te, felna zirtîr kawngah te a sâwt bawk a ni; Pathian mi chu hna ṭha tinrêng thawk tûra kim taka inthuamin a famkim theih nân.\n\n2 TIMOTHEA 3:16-17 MIZOVBSI",
- "Nimahsela, thu ngaithlatute mai ni lovin, zâwmtute lo ni zâwk rawh u; chuti lo chu, mahni inbum in lo ni dah ang e. Tu pawh thu ngaithlatu nia zâwmtu ni si lo chu, mi, dârthlalanga a pianpui hmai ngun taka inen ang chu a ni: ngun takin a inen a, a kal bo va, mi eng ang nge a nih a intheihnghilh nghâl si ṭhîn.\n\nJAKOBA 1:22-24 MIZOVBSI",
- "Ani chuan thim thuneihna laka min chhan chhuakin, a Fapa hmangaih taka ramah chuan min kaitîr ta a; amahah chuan kan tlanna kan hmu a ni - kan sualte ngaihdamna chu.\n\nKOLOSSA 1:13-14 MIZOVBSI",
- "mihringte anga lo piangin, bâwih angah a insiam a, amah leh amah a intitlâwm ta zâwk a. Tin, mihring anga lo awmin a inngaitlâwm a, thi khawp hiala thu zâwmin a lo awm ta a, kraws-a thihna ngei chu.\n\nPHILIPPI 2:7-8 MIZOVBSI",
- "Tin, in hmangaihnain hriat famkimna leh bengvârna tinrêng a ngah lehzual nân ka ṭawngtai ṭhîn; chutichuan, Pathian ropuina leh fakna tûra Isua Krista zâra felna rah awm chuan lo khatin, Krista ni atân chuan a tak tak leh sawisêl bo in nih theihna tûrin, thil ṭha bîkte chu ṭha in ti thei ang.\n\nPHILIPPI 1:9-10 MIZOVBSI",
- "Nangmah ngeiin ka rilru i nei a; Ka nu pum chhûngah mi khuh a. I hnênah lâwmthu ka hrilh ang che, hlauhawm tak leh mak taka siam ka ni si a; I thiltihte hi mak tak a ni a; Chu chu ka nunna hian a hre chiang hle a ni.\n\nSAM 139:13-14 MIZOVBSI",
- "Hmuh awla a awm lai hian Lalpa chu zawng ula, a hnaih lai hian ko rawh u. Mi suaksual chuan a awm dân chu bânsan sela, mi fel lo chuan a ngaihtuahte chu bânsan bawk rawh se. Lalpa hnênah kîr leh rawh se; tichuan, anin a lo khawngaih ang; kan Pathian hnênah kîr leh rawh se, anin a ngaidam nasa khawp dâwn si a.\n\nISAIA 55:6-7 MIZOVBSI",
- "kan pêng mawite erawh hi chuan chutianga tih an ngai lo. Taksaah hian inṭhenna rêng rêng awm lo va, a pêngte hian inang taka an inbuaipui tawn ṭheuh zâwkna tûrin, Pathianin mawina nei lo pêng chu chawimawi nasa zâwkin taksa hi a rem khâwm a ni zâwk. Chutichuan, pêng khatin a tuar chuan pêng zawng zawngin an tuarpui ṭhîn, pêng khat chawimawia a awm chuan pêng zawng zawngin an lawmpui ṭhîn. Chutichuan, nangniho hi Krista taksa chu in ni a, a pêngte in ni ṭheuh bawk a.\n\n1 KORINTH 12:25-27 MIZOVBSI",
- "Tin, amah vêkin mi zawng zawng hnênah, “Tu pawhin mi zui a duh chuan, mahni hrehawm pawisa lovin, ni tin a kraws puin mi zui rawh se. Tu pawh a nun humhim duh apiangin a chân ang a; tu pawh keimah avânga a nun chân apiangin, chu mi ngei chuan a humhim ang.\n\nLUKA 9:23-24 MIZOVBSI",
- "Chungnungbera bihrûkna hmuna awma chu, Engkimtitheia hlimah chuan a awm reng ang. Lalpa chung thûah chuan, “Ani chu ka inhumhimna leh ka kulhpui a ni a; Ka Pathian, ka rina chu a ni,” ka ti ang.\n\nSAM 91:1-2 MIZOVBSI",
- "Lalpa chuan, “Chuti chung pawhin tûnah in thinlung zawng zawngin, chaw ngheiin, ṭapin, lungngaiin ka lam lo hawi rawh u,” a ti. In puan ni lovin in thinlung thlêr ula, Lalpa in Pathian lam chu hawi rawh u; ani chu khawngaih thei tak leh lainatnaa khat, thinnel leh ngilneihna ngah, chhiatna thlentîr lo tûra inlamlêt ṭhîn a ni si.\n\nJOELA 2:12-13 MIZOVBSI",
- "Kan Lalpa Isua Krista Pathian leh Pa, khawngaihnate Pa leh thlamuanna zawng zawng Pathian chu fakin awm rawh se. Pathianin keimahni min thlamuanna ngeiin, hrehawm eng anga awmte pawh chu kan thlamuan ve theihna tûrin, ani chuan kan hrehawmna zawng zawngah min thlamuan ṭhîn.\n\n2 KORINTH 1:3-4 MIZOVBSI",
-  "amaherawhchu, amah chu êngah a awm angin keini pawh ênga awm kan nih chuan, kan inpâwl tlâng a; tin, a Fapa Isua thisenin kan sual zawng zawng min tlen faisak ṭhîn a ni.\n\n1 JOHANA 1 Chang 7 MIZOVBSI",
- "Lalpa anga thianghlim hi an awm lo; Nangmah ang rêng an awm si lo, Kan Pathian ang lungpui rêng a awm hek lo.\n\n1 SAMUELA 2 Chang 2 MIZOVBSI",
-"thil hmuh theihte hi en lovin, thil hmuh theih lohte chu kan en zâwk si a; thil hmuh theihte hi rei lo tê atân a ni a, thil hmuh theih lohte erawh chu chatuan atân a ni si a.\n\n2 KORINTH 4 Chang 18 MIZOVBSI",
-"Hnathawktu, thutak thu fel taka hmang chu zak tûr a ni lo angin, Pathian ngaiha ṭhaa inentîr tûrin ṭhahnem ngai rawh.\n\n2 TIMOTHEA 2 Chang 15 MIZOVBSI",
-"Lâwm thu sawi chungin a kawngkhârah chuan lût ula, Fak chungin a biak in hung chhûng kawtlaiah chuan lût rawh u. A hnênah lâwmthu sawi ula, a hming chu fak rawh u.\n\nSAM 100 Chang 4 MIZOVBSI",
-   "Lalpa i Pathian chu i hnênah a awm e, Chhandamtu tûr mi chak tak chu; Lâwmin i chungah a hlim ang a, a hmangaihna a tithar ang a, Hla sain i chungah a lâwm ang.\n\nZEPHANIA 3 Chang 17 MIZOVBSI",
-   "Nimahsela, ka tlânsiakna kawng ka hmabâk hlen tûr leh, Pathian khawngaihna Chanchin Ṭha hriattîr tûr, Lalpa Isua hnên aṭanga khami rawngbâwl hna ka hmuh kha thawk zo phawt ila, ka nun pawh thlâkhlelh tlâkah ka ruat lo ve.\n\nTIRHKOHTE 20 Chang 24 MIZOVBSI",
-   "Lalpa chuan thinlunga lungchhiate chu a hnaih ṭhîn a, Rilrua inchhîr apiangte chu a chhandam ṭhîn.\n\nSAM 34 Chang 18 MIZOVBSI",
-   "Hei hi ka thupêk a ni, keiin ka hmangaih che u ang bawkin nangni inhmangaih ula.\n\nJOHANA 15 Chang 12 MIZOVBSI",
-   "“I kain Isua chu Lalpa a ni tih i ṭana, mitthi zîng ata Pathianin a kai tho tih i thinlunga i rin chuan, chhandamin i awm ang,” tih hi.\n\nROM 10 Chang 9 MIZOVBSI",
-   "Chuvângin, a hun têah chuan a chawimawi theihna tûr che uin, Pathian kut chak tak hnuaiah chuan intihnuai ula,\n\n1 PETERA 5 Chang 6 MIZOVBSI",
-   "Aw, Lalpa hnênah lawm thu hril ula, a hming lam rawh u; Mi tin zîngah chuan a thiltihte chu hriattîr rawh u.,\n\nSAM 105 Chang 1 MIZOVBSI",
-   "Tin, Pathian hmangaihtu, ama ruat anga a kohvate tân chuan, an ṭhatna tûrin engkimin a thawhsak hlawm ṭhîn tih kan hria;\n\nROM 8 Chang 28 MIZOVBSI",
-   "Chutichuan, a fa duh takte angin, Pathian awm dân latute ni rawh u.\n\nEPHESI 5 Chang 1 MIZOVBSI",
-   "Thlêmna tuar hrâm hrâmtu chu a eng a thâwl e; fiaha a awm hnuin nunna lallukhum, Lalpan amah hmangaihtute hnêna a tiam chu a hmu dâwn si a.\n\nJAKOBA 1 Chang 12 MIZOVBSI",
-   "Duh takte u, Pathianin chuti kauva min hmangaih chuan, keini pawh kan inhmangaih tawn ṭheuh tûr a ni.\n\n1 JOHANA 4 Chang 11 MIZOVBSI",
-   "ama lâwm zâwng atâna tih tum tûr leh bei tûra nangmahnia thawktu chu Pathian a ni si a.\n\nPHILIPPI 2 Chang 13 MIZOVBSI",
-   "Lalpa, kan phur ni tina min phurhsaktu, Min chhandamtu Pathian chu, fakin awm rawh se. (Selah)\n\nSAM 68 Chang 19 MIZOVBSI",
-   "Tisa lam thilte duh chu thihna a ni si a, Thlarau lam thil duh erawh chu nunna leh thlamuanna a ni;\n\nROM 8 Chang 6 MIZOVBSI",
-   "Mi fing pâwl la, i lo fing ang a, Mi â pâwl erawh chu hrehawm tuar phahna a ni.\n\nTHUFINGTE 13 Chang 20 MIZOVBSI",
-   "Ka nunna hi mi siam ṭhat ṭhîn a, Ama hming avângin felna kawngahte mi hruai ṭhîn.\n\nSAM 23 Chang 3 MIZOVBSI",
-   "Nangni thawk rim leh phurrit phur zawng zawngte u, ka hnênah lo kal ula, keiman ka chawlhtîr ang che u.\n\nMatthaia 11 Chang 28 MIZOVBSI",
-   "Thil ṭha ti atân Krista Isuaah chuan siama awmin, ama kutchhuak kan ni si a; chu thil ṭha tih chu kan awmna tûrin Pathianin a buatsaih lâwk a ni.\n\nEPHESI 2 Chang 10 MIZOVBSI",
-   "Pain a fate a khawngaih ang hian, Lalpa chuan amah ṭihtute chu a khawngaih ṭhîn.\n\nSAM 103 Chang 13 MIZOVBSI",
-   "Êng chu thim zîngah a lo êng a; thimin chu chu a hre lo.\n\nJOHANA 1 Chang 5 MIZOVBSI",
-   "In zîngah thil ṭha lo tuar an awm em? Ṭawngṭai rawh se. Hlim an awm em? Fakna hla sa rawh se.\n\nJAKOBA 5 Chang 13 MIZOVBSI",
-   "Nimahsela, thil tihṭhat leh thilphal hi theihnghilh suh u; chutiang inthawina chungah chuan Pathian a lungni êm êm si a.\n\nHEBRAI 13 Chang 16 MIZOVBSI",
-   "A tâwp berah chuan unaute u, a dik apiang te, a zahawm apiang te, a fel apiang te, a thianghlim apiang te, a duhawm apiang te, a thang mawi apiang te - ṭhatna rêng a awma, fakna rêng a awm phawt chuan - chûng chu ngaihtuah rawh u.\n\nPHILIPPI 4 Chang 8 MIZOVBSI",
-   "Ngai teh, unaute nngeih dial diala awm khâwm hi A va ṭhain, a va nuam êm!\n\nSAM 133 Chang 1 MIZOVBSI",
-   "Nimahsela, mitthi zîng ata Isua titholehtua Thlarau chu nangmahnia a awm chuan, mitthi zîng ata Krista Isua titholehtu khân, nangmahnia awm Thlarau zârah chuan in taksa thi theite chu a tinung bawk ang.\n\nROM 8 Chang 11 MIZOVBSI",
-   "Elrel leh inngaihhlut avânga eng mah ti lovin, mi tinin inngaitlâwm takin mahni aiin mi dang ṭha zâwkah ruat ṭheuh rawh se;\n\nPHILIPPI 2 Chang 3 MIZOVBSI",
-   "Nimahsela, rorêlna dik chu lui angin luang sela, felna chu luipui kang ngai lo angin luang rawh se.\n\nAMOSA 5 Chang 24 MIZOVBSI",
-   "Mihring thinlungah suangtuahna tam tak a awm a; Lalpa remruat erawh chu a pângngai reng ang.\n\nTHUFINGTE 19 Chang 21 MIZOVBSI",
-   "Min zawng ang a, in thinlung zawng zawnga mi zawn hunah chuan mi hmu ang.\n\nJEREMIA 29 Chang 13 MIZOVBSI",
-   "Nimahsela, ani chuan, “ ‘Mihring hi chhang chauhvin an nung lo vang a, Pathian kâa thu tin chhuakin an nung zâwk ang,’ tih ziak a ni,” tiin a chhâng a.\n\nMatthaia 4 Chang 4 MIZOVBSI",
-   "Pathian thuchhuak rêng rêng thiltithei lovin a awm lo vang,” a ti a.\n\nLUKA 1 Chang 37 MIZOVBSI",
-   "Pathian Lehkha Thua chhelna leh thlamuanna hmua beiseina kan neih theihna tûrin, hmânlaia ziak apiangte chu keimahni min zirtîrna tûrin ziak a ni si a.\n\nROM 15 Chang 4 MIZOVBSI",
-   "I thu hi ka ke atânte hian khâwnvâr a ni a, Ka kawng atân êng a ni.\n\nSAM 119 Chang 105 MIZOVBSI",
-   "Tu mân tu sual pawh suala thungrûl lo tûrin fîmkhur rawh u; in thil intihsak tawnna lamah leh, mi zawng zawng chunga in tihsakna lamah pawh, a ṭha apiang ûm fo zâwk rawh u.\n\n1 THESSALONIKA 5 Chang 15 MIZOVBSI",
-   "Chutichuan, tihdama in awm theih nân in sualte thupha chawi tawn ula, inṭawngṭaisak tawn ṭhîn rawh u. Mi fel ṭawngṭaina chuan thil nasa tak a ti ṭhîn.\n\nJAKOBA 5 Chang 16 MIZOVBSI",
-   "Chutichuan, tihdama in awm theih nân in sualte thupha chawi tawn ula, inṭawngṭaisak tawn ṭhîn rawh u. Mi fel ṭawngṭaina chuan thil nasa tak a ti ṭhîn.\n\nJAKOBA 5 Chang 16 MIZOVBSI",
-   "Ni chhuahna aṭanga a tlâkna thlengin Lalpa hming chu fak tûr a ni.\n\nSAM 113 Chang 3 MIZOVBSI",
-   "Lalpa hming chu kulhpui a ni a, Mi fel chu a tlân lût ṭhîn a, a him ṭhîn.\n\nTHUFINGTE 18 Chang 10 MIZOVBSI",
-   "ka hming pu ka mite chuan inngaitlâwma an ṭawngṭaia, mi zawna, an awm dân sualte an hawisan chuan, vân aṭangin ka lo ngaithla ang a, an sualte ka ngaidam ang a, an ram chu ka tidam leh ang.\n\n2 CHRONICLES 7 Chang 14 MIZOVBSI",
-   "Pathian pakhat chauh a awm a, Pathian leh mihring inkâra Palai pakhat chauh a awm bawk a, amah chu mihring a ni, Krista Isua,\n\n1 TIMOTHEA 2 Chang 5 MIZOVBSI",
-   "Engkim ka tih apiangah ka tihhmuh ṭhin che u kha, chutianga thawk rim chung leh, Lalpa Isua thu hre reng chung chuan mi chak lote in ṭanpui tûr a ni; amah ngeiin, ‘Englo lâk aiin pêkin lukhâwng a nei zâwk,’ a tih kha,” a ti a.\n\nTIRHKOHTE 20 Chang 35 MIZOVBSI",
-   "Lalpa chu a ṭha si a; a ngilneihna chu kumkhuain a awm ang a; A rinawmna chu chhuan zawng zawng thlengin a awm ang.\n\nSAM 100 Chang 5 MIZOVBSI",
-   "Vawiinah hian kan ei khawpin chaw min pe ang che.\n\nMatthaia 6 Chang 11 MIZOVBSI",
-   "Tûnlaia tuarnate hi nakina kan chunga ropuina tihlan tûr nên chuan tehkhin thamah ka ruat si lo.\n\nROM 8 Chang 18 MIZOVBSI",
-   "Isua Krista chu niminah nên, vawiinah nên, kumkhua pawhin a pângngaiin a awm fo vang.I\n\nHEBRAI 13 Chang 8 MIZOVBSI",
-   "Amaherawhchu, in hmêlmate hmangaih ula, an ṭhatna tûr ti ula, pûktîr rawh u, beidawng hauh lovin; tichuan, in lâwmman a tam ang a, Chungnungbera fate in ni bawk ang; ani chuan mi lâwm nachâng hre lote leh mi sualte a khawngaih ṭhîn.\n\nLUKA 6 Chang 35 MIZOVBSI",
-   "Tin, a tûkah chuan Johanan Isua a hnênah lo kal dâwnin a hmu a. Tin, a sawi a, “En teh u, Pathian Berâmno, khawvêl sual kalpuitu tûr saw!\n\nJOHANA 1 Chang 29 MIZOVBSI",
-   "I chunga rilru nghattu chu, nangmah a rin che avângin thlamuang tak maia awm tûrin i vêng ang.\n\nISAIA 26 Chang 3 MIZOVBSI",
-   "Chutichuan, thil engkim miin in chunga an tiha in duh tûr ang apiang chu, mi chungah pawh ti ve rawh u; chu chu dân thu leh zâwlneite thu a ni rêng si a.\n\nMatthaia 7 Chang 12 MIZOVBSI",
-   "Lalpa chu nghâk reng rawh; Chak takin awm la, i thinlung chu intihuai rawh se; A ni, Lalpa chu nghâk reng rawh.\n\nSAM 27 Chang 14 MIZOVBSI",
-   "Pathian duh zâwnga lungngaihna chuan chhandamna tûra simna a thlen a, chu chu inchhîrawm loh tak a ni a. Khawvêl lungngaihna erawh chuan thihna a thlen zâwk ṭhîn.\n\n2 KORINTH 7 Chang 10 MIZOVBSI",
-   "i ro awmna apiangah i rilru pawh a awm ang.\n\nMatthaia 6 Chang 21 MIZOVBSI",
-   "Aw ka nunna, engah nge i kun reng? Engah nge ka chhûngah hian i buai ni? Pathian beisei rawh; amah chu ka la fak dâwn si a, Ka hmêl tidamtu leh ka Pathian chu.\n\nSAM 42 Chang 11 MIZOVBSI",
-   "Naupang chu a kalna âwm kawngah chuan zirtîr ula, A upat hun pawhin a thlah lo vang.\n\nTHUFINGTE 22 Chang 6 MIZOVBSI",
-   "Kan Pathian leh Pa mit hmuha sakhaw biak dân thianghlim leh sual tel lo chu hei hi a ni, fahrah leh hmeithaite an hrehawm laia kan leh, khawvêl bawlhhlawh kai lova insiam ṭhin hi.\n\nJAKOBA 1 Chang 27 MIZOVBSI",
-   "A ram leh a felna chu zawng hmasa zâwk rawh u; tichuan, chûng zawng zawng chu a pêk belhchhah dâwn che u nia.\n\nMatthaia 6 Chang 33 MIZOVBSI",
-   "In Pain mi a khawngaih angin mi khawngaih ve rawh u.\n\nLUKA 6 Chang 36 MIZOVBSI",
-   "Naute u, Pathian hnên ata in ni a, chûng chu in ngam tawh e; nangmahnia awma chu khawvêla awma ai chuan a ropui zâwk avângin.\n\n1 JOHANA 4 Chang 4 MIZOVBSI",
-   "Duh tak, sual chu zir suh la, ṭha chu zir zâwk ang che. Thil ṭha titu chu Pathian laka mi a ni; thil sual titu chuan Pathian a hmu ngai lo.\n\n3 JOHANA 1 Chang 11 MIZOVBSI",
-   "engkim a tuar hrâm hrâm a, engkim a ring a, engkim a beisei a, engkim a tuar chhuak ṭhîn.\n\n1 KORINTH 13 Chang 7 MIZOVBSI",
-   "Mahni ngaihin intifing suh la; Lalpa chu ṭih la, sual kalsan rawh.\n\nTHUFINGTE 3 Chang 7 MIZOVBSI",
-   "“Tu pawh Lalpa hming lam apiangte chu chhandamin an awm ang,” tih a ni a.\n\nROM 10 Chang 13 MIZOVBSI",
-   "Tin, khawngaihna zawng zawng Pathian, a chatuan ropuina chang tûra Kristaa kotu che u ngei chuan rei lo tê in tuar hnuan a siam ṭha famkimin, a tinghetin, a tichak ang che u.\n\n1 PETERA 5 Chang 10 MIZOVBSI",
-   "Lalpa in Pathian chu in thinlung zawng zawngin, in rilru zawng zawngin, in chakna zawng zawngin in hmangaih tûr a ni.\n\nDEUTERONOMY 6 Chang 5 MIZOVBSI",
-   "fel lohnaah a lâwm lo va, thutak erawh chu a lawmpui ṭhîn a;\n\n1 KORINTH 13 Chang 6 MIZOVBSI",
-   "Ngawi ula, Pathian ka ni tih hi hre rawh u: Hnam tin zîngah chawimawiin ka awm ang a, leiah hian chawimawiin ka awm ang.\n\nSAM 46 Chang 10 MIZOVBSI",
-   "Chung lama thil awmahte chuan in rilru nghat tlat rawh u, leia thil awmahte chuan nghat lovin.\n\nKOLOSSA 3 Chang 2 MIZOVBSI",
-   "beiseina kawngah chuan lâwm ula; hrehawm tuarna kawngah chuan chhel ula, ṭawngṭaina kawngah chuan ṭawngṭai fan fan ula;\n\nROM 12 Chang 12 MIZOVBSI",
-   "Tu pawh tlêm te chunga rinawm chu tam tak chungah pawh a rinawm ṭhîn; tu pawh tlêm te chunga rinawm lo chu, tam tak chungah pawh a rinawm lo ṭhîn a ni.\n\nLUKA 16 Chang 10 MIZOVBSI",
-   "Duhsakna hi bumna a ni a, hmêl ṭhatna chu eng mah lo a ni; Lalpa ṭihtu hmeichhia erawh chu fak a ni ang.\n\nTHUFINGTE 31 Chang 30 MIZOVBSI",
-   "Tûn ang huna i ngawih mai mai chuan, hmun danga Juda-te tân himna leh chhuahna a lo awm pawhin, nang leh i pa chhûngte chu kan boral ang. Lal nihna i lo chan hi hetih hun atân ngei hian a ni dâwn lâwm ni?” va ti tûrin a tîr a.\n\nESTHERI 4 Chang 14 MIZOVBSI",
-   "Nangmahnia thil ṭha ti ṭantu khân Isua Krista ni thlengin a tifamkim zêl dawn, chu ngei chu ka ring tlat si a.\n\nPHILIPPI 1 Chang 6 MIZOVBSI",
-   "a thisen avângin amahah chuan kan tlanna kan nei a ni - a khawngaihna ngahzia ang zêla kan bawhchhiatnate ngaihdamna chu.\n\nEPHESI 1 Chang 7 MIZOVBSI",
-   "Chutichuan, chhûmpui nasa tak ang thlîrtuten min hual vêl avâng hian, min tihnawk apiang leh sual keimahnia bet tlat chu i dah ve ang u; tin, Isua, kan rinna siamtu leh tifamkimtu lam chu enin, kan hmaa intlânsiakna tûr awmah hian chhel takin i tlân zêl ang u. Ani chuan a hmaa hlimna awm avâng chuan, mualphona chu ngainêpin kraws chu a tuar a, Pathian lalṭhutphah ding lamah khian a han ṭhu ta a.\n\nHEBRAI 12 Chang 2 MIZOVBSI",
-   "Tichuan, Pathian thlamuanna, rilru rêng rênga hriat sên loh khân, in thinlung leh in ngaihtuahnate chu Krista Isuaah chuan a vênsak ang che u.\n\nPHILIPPI 4 Chang 7 MIZOVBSI",
-   "Ngai teh u, chinghne zînga berâm awm angin ka tirh che u hi; chutichuan, rûl anga finga, ṭhuro anga pawi khawih lovin awm ang che u.\n\nMatthaia 10 Chang 16 MIZOVBSI",
-   "Mi tichaktuah chuan engkim ka ti thei a ni.\n\nPHILIPPI 4 Chang 13 MIZOVBSI",
-   "Sakhi, luite tui châka a thaw huam huam ang hian, Aw Pathian, ka nunna hi nangmah châkin a thaw huam huam a ni.\n\nSAM 42 Chang 1 MIZOVBSI"
-]
+const bible = await fetchJson('https://raw.githubusercontent.com/HBMods-OFC/Media/main/QuotesMizo/BibleQuote.json')
 const mizo_bible = bible[Math.floor(Math.random() * bible.length)]
-const thuziak = `*${mizo_bible}*`
-return replymizobiblequotes(thuziak)              
-              break
+const thuziak = `${mizo_bible}`
+return replymizobiblequotes(thuziak)         
+break
+
+case 'tagall': {
+if (!m.isGroup) return m.reply(mess.group)
+me = m.sender
+let teks = `╚»˙·٠●♥ Tag All ♥●٠·˙«╝ 
+ 
+ 😶 *A tag-tu :*  @${me.split('@')[0]}
+ 🌿 *Message : ${q ? q : 'no message'}*\n\n`
+for (let mem of participants) {
+teks += `${themeemoji} @${mem.id.split('@')[0]}\n`
+}
+HBWABotInc.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, { quoted: m })
+}
+break
+
 case 'thuril': {
                 let mizoquotes = await fetchJson('https://raw.githubusercontent.com/HBMods-OFC/Media/main/QuotesMizo/mizoquotes.json')
                 let random = mizoquotes[Math.floor(Math.random() * mizoquotes.length)]
