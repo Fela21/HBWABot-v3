@@ -486,7 +486,7 @@ list.push({
 	    	displayName: await HBWABotInc.getName(i),
 	    	vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${await HBWABotInc.getName(
           i + "@s.whatsapp.net"
-        )}\nFN:${global.ownername}\nitem1.TEL;waid=${i}:${i}\nitem1.X-ABLabel:Hmet la be rawh\nitem2.EMAIL;type=INTERNET:
+        )}\nFN:${global.ownername}\nitem1.TEL;waid=${i}:${i}\nitem1.X-ABLabel:Bot hmangtu\nitem2.EMAIL;type=INTERNET:
  ${ytname}\nitem2.X-ABLabel:YouTube\nitem3.URL:${socialm}\nitem3.X-ABLabel:IG\nitem4.ADR:;;India;Mizoram Aizawl ;;;\nitem4.X-ABLabel:Region\nEND:VCARD`
 	    })
 	}
@@ -497,7 +497,7 @@ list.push({
 	    	displayName: await HBWABotInc.getName(h),
 	    	vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${await HBWABotInc.getName(
           h + "@s.whatsapp.net"
-        )}\nFN:${Englo}\nitem1.TEL;waid=${h}:${h}\nitem1.X-ABLabel:Hmet la be rawh\nitem2.EMAIL;type=INTERNET:
+        )}\nFN:${Englo}\nitem1.TEL;waid=${h}:${h}\nitem1.X-ABLabel:Bot siamtu\nitem2.EMAIL;type=INTERNET:
  YT: HBMods OFC\nitem2.X-ABLabel:YouTube\nitem3.URL:herbert70.blogspot.com\nitem3.X-ABLabel:IG\nitem4.ADR:;;India;Mizoram Aizawl ;;;\nitem4.X-ABLabel:Region\nEND:VCARD`
 	    })
 	}
@@ -961,10 +961,11 @@ HBWABotInc.sendMessage(from, { text : `Hi @${sender.split("@")[0]}, Hei aw ka ow
 }
 break
 case 'developer': case 'dev': {
-const maimai = await HBWABotInc.sendMessage(from, { 
+const mola = await HBWABotInc.sendMessage(from, { 
 contacts: { 
 displayName: `${dev.length} Contact`, 
-contacts: dev } , mentions: [sender]},{quoted: m})
+contacts: dev }, mentions: [sender] }, { quoted: m })
+HBWABotInc.sendMessage(from, { text : `Hi @${sender.split("@")[0]}, Hei hi bot developer number a ni`, mentions: [sender]}, { quoted: mola })
 }
 break
 case 'hi': case 'hii': case 'hiii': case 'helo': case 'hello': case 'hlo': case 'sir': case 'kapu': {
@@ -3048,12 +3049,427 @@ maker.textpro("https://textpro.me/create-logo-style-marvel-studios-ver-metal-972
   .then((data) => HBWABotInc.sendMessage(m.chat, { image: { url: data }, caption: `A genarate-tu hi ${global.botname} ka ni e.!! ` }, { quoted: m }))
   .catch((err) => console.log(err));
    break
+
 case 'bible': case 'bq': case 'bible-quotes': 
-const mizoquotes = await fetchJson('https://raw.githubusercontent.com/HBMods-OFC/Media/main/QuotesMizo/BibleQuote.json')
-let bible2 = mizoquotes[Math.floor(Math.random() * mizoquotes.length)]
-const textquotes = `*Quote:* ${bible2.mizobible}\n\n*${bible2.bunglehchang}*`
-return replymizobiblequotes(textquotes)
-break
+const bible =[{
+   "number": "1",
+   "mizobible": "amaherawhchu, amah chu êngah a awm angin keini pawh ênga awm kan nih chuan, kan inpâwl tlâng a; tin, a Fapa Isua thisenin kan sual zawng zawng min tlen faisak ṭhîn a ni.",
+   "bunglehchang": "1 JOHANA 1 Chang 7 MIZOVBSI"
+},
+{ 
+   "number": "3",
+   "mizobible": "Lalpa anga thianghlim hi an awm lo; Nangmah ang rêng an awm si lo, Kan Pathian ang lungpui rêng a awm hek lo.",
+   "bunglehchang": "1 SAMUELA 2 Chang 2 MIZOVBSI" 
+},
+{ 
+   "number": "4",
+   "mizobible": "thil hmuh theihte hi en lovin, thil hmuh theih lohte chu kan en zâwk si a; thil hmuh theihte hi rei lo tê atân a ni a, thil hmuh theih lohte erawh chu chatuan atân a ni si a.",
+   "bunglehchang": "2 KORINTH 4 Chang 18 MIZOVBSI" 
+},
+{ 
+   "number": "5",
+   "mizobible": "Hnathawktu, thutak thu fel taka hmang chu zak tûr a ni lo angin, Pathian ngaiha ṭhaa inentîr tûrin ṭhahnem ngai rawh.",
+   "bunglehchang": "2 TIMOTHEA 2 Chang 15 MIZOVBSI" 
+},
+{ 
+   "number": "6",
+   "mizobible": "Lâwm thu sawi chungin a kawngkhârah chuan lût ula, Fak chungin a biak in hung chhûng kawtlaiah chuan lût rawh u. A hnênah lâwmthu sawi ula, a hming chu fak rawh u.",
+   "bunglehchang": "SAM 100 Chang 4 MIZOVBSI" 
+},
+{ 
+   "number": "7",
+   "mizobible": "Lalpa i Pathian chu i hnênah a awm e, Chhandamtu tûr mi chak tak chu; Lâwmin i chungah a hlim ang a, a hmangaihna a tithar ang a, Hla sain i chungah a lâwm ang.",
+   "bunglehchang": "ZEPHANIA 3 Chang 17 MIZOVBSI" 
+},
+{ 
+   "number": "8",
+   "mizobible": "Nimahsela, ka tlânsiakna kawng ka hmabâk hlen tûr leh, Pathian khawngaihna Chanchin Ṭha hriattîr tûr, Lalpa Isua hnên aṭanga khami rawngbâwl hna ka hmuh kha thawk zo phawt ila, ka nun pawh thlâkhlelh tlâkah ka ruat lo ve.",
+   "bunglehchang": "TIRHKOHTE 20 Chang 24 MIZOVBSI" 
+},
+{ 
+   "number": "9",
+   "mizobible": "Lalpa chuan thinlunga lungchhiate chu a hnaih ṭhîn a, Rilrua inchhîr apiangte chu a chhandam ṭhîn.",
+   "bunglehchang": "SAM 34 Chang 18 MIZOVBSI" 
+},
+{ 
+   "number": "10",
+   "mizobible": "Hei hi ka thupêk a ni, keiin ka hmangaih che u ang bawkin nangni inhmangaih ula.",
+   "bunglehchang": "JOHANA 15 Chang 12 MIZOVBSI" 
+},
+{ 
+   "number": "11",
+   "mizobible": "“I kain Isua chu Lalpa a ni tih i ṭana, mitthi zîng ata Pathianin a kai tho tih i thinlunga i rin chuan, chhandamin i awm ang,” tih hi.",
+   "bunglehchang": "ROM 10 Chang 9 MIZOVBSI" 
+},
+{ 
+   "number": "13",
+   "mizobible": "Chuvângin, a hun têah chuan a chawimawi theihna tûr che uin, Pathian kut chak tak hnuaiah chuan intihnuai ula,",
+   "bunglehchang": "1 PETERA 5 Chang 6 MIZOVBSI" 
+},
+{ 
+   "number": "14",
+   "mizobible": "Aw, Lalpa hnênah lawm thu hril ula, a hming lam rawh u; Mi tin zîngah chuan a thiltihte chu hriattîr rawh u.,",
+   "bunglehchang": "SAM 105 Chang 1 MIZOVBSI" 
+},
+{ 
+   "number": "15",
+   "mizobible": "Tin, Pathian hmangaihtu, ama ruat anga a kohvate tân chuan, an ṭhatna tûrin engkimin a thawhsak hlawm ṭhîn tih kan hria;",
+   "bunglehchang": "ROM 8 Chang 28 MIZOVBSI" 
+},
+{ 
+   "number": "16",
+   "mizobible": "Chutichuan, a fa duh takte angin, Pathian awm dân latute ni rawh u.",
+   "bunglehchang": "EPHESI 5 Chang 1 MIZOVBSI" 
+},
+{ 
+   "number": "17",
+   "mizobible": "Thlêmna tuar hrâm hrâmtu chu a eng a thâwl e; fiaha a awm hnuin nunna lallukhum, Lalpan amah hmangaihtute hnêna a tiam chu a hmu dâwn si a.",
+   "bunglehchang": "JAKOBA 1 Chang 12 MIZOVBSI" 
+},
+{ 
+   "number": "18",
+   "mizobible": "Duh takte u, Pathianin chuti kauva min hmangaih chuan, keini pawh kan inhmangaih tawn ṭheuh tûr a ni.",
+   "bunglehchang": "1 JOHANA 4 Chang 11 MIZOVBSI" 
+},
+{ 
+   "number": "19",
+   "mizobible": "ama lâwm zâwng atâna tih tum tûr leh bei tûra nangmahnia thawktu chu Pathian a ni si a.",
+   "bunglehchang": "PHILIPPI 2 Chang 13 MIZOVBSI" 
+},
+{ 
+   "number": "20",
+   "mizobible": "Lalpa, kan phur ni tina min phurhsaktu, Min chhandamtu Pathian chu, fakin awm rawh se. (Selah)",
+   "bunglehchang": "SAM 68 Chang 19 MIZOVBSI" 
+},
+{ 
+   "number": "21",
+   "mizobible": "Tisa lam thilte duh chu thihna a ni si a, Thlarau lam thil duh erawh chu nunna leh thlamuanna a ni;",
+   "bunglehchang": "ROM 8 Chang 6 MIZOVBSI" 
+},
+{ 
+   "number": "22",
+   "mizobible": "Mi fing pâwl la, i lo fing ang a, Mi â pâwl erawh chu hrehawm tuar phahna a ni.",
+   "bunglehchang": "THUFINGTE 13 Chang 20 MIZOVBSI" 
+},
+{ 
+   "number": "23",
+   "mizobible": "Ka nunna hi mi siam ṭhat ṭhîn a, Ama hming avângin felna kawngahte mi hruai ṭhîn.",
+   "bunglehchang": "SAM 23 Chang 3 MIZOVBSI" 
+},
+{ 
+   "number": "25",
+   "mizobible": "Nangni thawk rim leh phurrit phur zawng zawngte u, ka hnênah lo kal ula, keiman ka chawlhtîr ang che u.",
+   "bunglehchang": "Matthaia 11 Chang 28 MIZOVBSI" 
+},
+{ 
+   "number": "26",
+   "mizobible": "Thil ṭha ti atân Krista Isuaah chuan siama awmin, ama kutchhuak kan ni si a; chu thil ṭha tih chu kan awmna tûrin Pathianin a buatsaih lâwk a ni.",
+   "bunglehchang": "EPHESI 2 Chang 10 MIZOVBSI" 
+},
+{ 
+   "number": "27",
+   "mizobible": "Pain a fate a khawngaih ang hian, Lalpa chuan amah ṭihtute chu a khawngaih ṭhîn.",
+   "bunglehchang": "SAM 103 Chang 13 MIZOVBSI" 
+},
+{ 
+   "number": "28",
+   "mizobible": "Êng chu thim zîngah a lo êng a; thimin chu chu a hre lo.",
+   "bunglehchang": "JOHANA 1 Chang 5 MIZOVBSI" 
+},
+{ 
+   "number": "29",
+   "mizobible": "In zîngah thil ṭha lo tuar an awm em? Ṭawngṭai rawh se. Hlim an awm em? Fakna hla sa rawh se.",
+   "bunglehchang": "JAKOBA 5 Chang 13 MIZOVBSI" 
+},
+{ 
+   "number": "30",
+   "mizobible": "Nimahsela, thil tihṭhat leh thilphal hi theihnghilh suh u; chutiang inthawina chungah chuan Pathian a lungni êm êm si a.",
+   "bunglehchang": "HEBRAI 13 Chang 16 MIZOVBSI" 
+},
+{ 
+   "number": "31",
+   "mizobible": "A tâwp berah chuan unaute u, a dik apiang te, a zahawm apiang te, a fel apiang te, a thianghlim apiang te, a duhawm apiang te, a thang mawi apiang te - ṭhatna rêng a awma, fakna rêng a awm phawt chuan - chûng chu ngaihtuah rawh u.",
+   "bunglehchang": "PHILIPPI 4 Chang 8 MIZOVBSI" 
+},
+{ 
+   "number": "32",
+   "mizobible": "Ngai teh, unaute nngeih dial diala awm khâwm hi A va ṭhain, a va nuam êm!",
+   "bunglehchang": "SAM 133 Chang 1 MIZOVBSI" 
+},
+{ 
+   "number": "33",
+   "mizobible": "Nimahsela, mitthi zîng ata Isua titholehtua Thlarau chu nangmahnia a awm chuan, mitthi zîng ata Krista Isua titholehtu khân, nangmahnia awm Thlarau zârah chuan in taksa thi theite chu a tinung bawk ang.",
+   "bunglehchang": "ROM 8 Chang 11 MIZOVBSI" 
+},
+{ 
+   "number": "34",
+   "mizobible": "Elrel leh inngaihhlut avânga eng mah ti lovin, mi tinin inngaitlâwm takin mahni aiin mi dang ṭha zâwkah ruat ṭheuh rawh se;",
+   "bunglehchang": "PHILIPPI 2 Chang 3 MIZOVBSI" 
+},
+{ 
+   "number": "35",
+   "mizobible": "Nimahsela, rorêlna dik chu lui angin luang sela, felna chu luipui kang ngai lo angin luang rawh se.",
+   "bunglehchang": "AMOSA 5 Chang 24 MIZOVBSI" 
+},
+{ 
+   "number": "36",
+   "mizobible": "Mihring thinlungah suangtuahna tam tak a awm a; Lalpa remruat erawh chu a pângngai reng ang.",
+   "bunglehchang": "THUFINGTE 19 Chang 21 MIZOVBSI" 
+},
+{ 
+   "number": "40",
+   "mizobible": "Min zawng ang a, in thinlung zawng zawnga mi zawn hunah chuan mi hmu ang.",
+   "bunglehchang": "JEREMIA 29 Chang 13 MIZOVBSI" 
+},
+{ 
+   "number": "42",
+   "mizobible": "Nimahsela, ani chuan, “ ‘Mihring hi chhang chauhvin an nung lo vang a, Pathian kâa thu tin chhuakin an nung zâwk ang,’ tih ziak a ni,” tiin a chhâng a.",
+   "bunglehchang": "Matthaia 4 Chang 4 MIZOVBSI" 
+},
+{ 
+   "number": "43",
+   "mizobible": "Pathian thuchhuak rêng rêng thiltithei lovin a awm lo vang,” a ti a.",
+   "bunglehchang": "LUKA 1 Chang 37 MIZOVBSI" 
+},
+{ 
+   "number": "45",
+   "mizobible": "Pathian Lehkha Thua chhelna leh thlamuanna hmua beiseina kan neih theihna tûrin, hmânlaia ziak apiangte chu keimahni min zirtîrna tûrin ziak a ni si a.",
+   "bunglehchang": "ROM 15 Chang 4 MIZOVBSI" 
+},
+{ 
+   "number": "46",
+   "mizobible": "I thu hi ka ke atânte hian khâwnvâr a ni a, Ka kawng atân êng a ni.",
+   "bunglehchang": "SAM 119 Chang 105 MIZOVBSI" 
+},
+{ 
+   "number": "47",
+   "mizobible": "Tu mân tu sual pawh suala thungrûl lo tûrin fîmkhur rawh u; in thil intihsak tawnna lamah leh, mi zawng zawng chunga in tihsakna lamah pawh, a ṭha apiang ûm fo zâwk rawh u.",
+   "bunglehchang": "1 THESSALONIKA 5 Chang 15 MIZOVBSI" 
+},
+{ 
+   "number": "49",
+   "mizobible": "Chutichuan, tihdama in awm theih nân in sualte thupha chawi tawn ula, inṭawngṭaisak tawn ṭhîn rawh u. Mi fel ṭawngṭaina chuan thil nasa tak a ti ṭhîn.",
+   "bunglehchang": "JAKOBA 5 Chang 16 MIZOVBSI" 
+},
+{ 
+   "number": "50",
+   "mizobible": "Chutichuan, tihdama in awm theih nân in sualte thupha chawi tawn ula, inṭawngṭaisak tawn ṭhîn rawh u. Mi fel ṭawngṭaina chuan thil nasa tak a ti ṭhîn.",
+   "bunglehchang": "JAKOBA 5 Chang 16 MIZOVBSI" 
+},
+{ 
+   "number": "51",
+   "mizobible": "Ni chhuahna aṭanga a tlâkna thlengin Lalpa hming chu fak tûr a ni.",
+   "bunglehchang": "SAM 113 Chang 3 MIZOVBSI" 
+},
+{ 
+   "number": "52",
+   "mizobible": "Lalpa hming chu kulhpui a ni a, Mi fel chu a tlân lût ṭhîn a, a him ṭhîn.",
+   "bunglehchang": "THUFINGTE 18 Chang 10 MIZOVBSI" 
+},
+{ 
+   "number": "53",
+   "mizobible": "ka hming pu ka mite chuan inngaitlâwma an ṭawngṭaia, mi zawna, an awm dân sualte an hawisan chuan, vân aṭangin ka lo ngaithla ang a, an sualte ka ngaidam ang a, an ram chu ka tidam leh ang.",
+   "bunglehchang": "2 CHRONICLES 7 Chang 14 MIZOVBSI" 
+},
+{ 
+   "number": "54",
+   "mizobible": "Pathian pakhat chauh a awm a, Pathian leh mihring inkâra Palai pakhat chauh a awm bawk a, amah chu mihring a ni, Krista Isua,",
+   "bunglehchang": "1 TIMOTHEA 2 Chang 5 MIZOVBSI" 
+},
+{ 
+   "number": "55",
+   "mizobible": "Engkim ka tih apiangah ka tihhmuh ṭhin che u kha, chutianga thawk rim chung leh, Lalpa Isua thu hre reng chung chuan mi chak lote in ṭanpui tûr a ni; amah ngeiin, ‘Englo lâk aiin pêkin lukhâwng a nei zâwk,’ a tih kha,” a ti a.",
+   "bunglehchang": "TIRHKOHTE 20 Chang 35 MIZOVBSI" 
+},
+{ 
+   "number": "56",
+   "mizobible": "Lalpa chu a ṭha si a; a ngilneihna chu kumkhuain a awm ang a; A rinawmna chu chhuan zawng zawng thlengin a awm ang.",
+   "bunglehchang": "SAM 100 Chang 5 MIZOVBSI" 
+},
+{ 
+   "number": "57",
+   "mizobible": "Vawiinah hian kan ei khawpin chaw min pe ang che.",
+   "bunglehchang": "Matthaia 6 Chang 11 MIZOVBSI" 
+},
+{ 
+   "number": "58",
+   "mizobible": "Tûnlaia tuarnate hi nakina kan chunga ropuina tihlan tûr nên chuan tehkhin thamah ka ruat si lo.",
+   "bunglehchang": "ROM 8 Chang 18 MIZOVBSI" 
+},
+{ 
+   "number": "59",
+   "mizobible": "Isua Krista chu niminah nên, vawiinah nên, kumkhua pawhin a pângngaiin a awm fo vang.I",
+   "bunglehchang": "HEBRAI 13 Chang 8 MIZOVBSI" 
+},
+{ 
+   "number": "60",
+   "mizobible": "Amaherawhchu, in hmêlmate hmangaih ula, an ṭhatna tûr ti ula, pûktîr rawh u, beidawng hauh lovin; tichuan, in lâwmman a tam ang a, Chungnungbera fate in ni bawk ang; ani chuan mi lâwm nachâng hre lote leh mi sualte a khawngaih ṭhîn.",
+   "bunglehchang": "LUKA 6 Chang 35 MIZOVBSI" 
+},
+{ 
+   "number": "61",
+   "mizobible": "Tin, a tûkah chuan Johanan Isua a hnênah lo kal dâwnin a hmu a. Tin, a sawi a, “En teh u, Pathian Berâmno, khawvêl sual kalpuitu tûr saw!",
+   "bunglehchang": "JOHANA 1 Chang 29 MIZOVBSI" 
+},
+{ 
+   "number": "63",
+   "mizobible": "I chunga rilru nghattu chu, nangmah a rin che avângin thlamuang tak maia awm tûrin i vêng ang.",
+   "bunglehchang": "ISAIA 26 Chang 3 MIZOVBSI" 
+},
+{ 
+   "number": "64",
+   "mizobible": "Chutichuan, thil engkim miin in chunga an tiha in duh tûr ang apiang chu, mi chungah pawh ti ve rawh u; chu chu dân thu leh zâwlneite thu a ni rêng si a.",
+   "bunglehchang": "Matthaia 7 Chang 12 MIZOVBSI" 
+},
+{ 
+   "number": "65",
+   "mizobible": "Lalpa chu nghâk reng rawh; Chak takin awm la, i thinlung chu intihuai rawh se; A ni, Lalpa chu nghâk reng rawh.",
+   "bunglehchang": "SAM 27 Chang 14 MIZOVBSI" 
+},
+{ 
+   "number": "66",
+   "mizobible": "Pathian duh zâwnga lungngaihna chuan chhandamna tûra simna a thlen a, chu chu inchhîrawm loh tak a ni a. Khawvêl lungngaihna erawh chuan thihna a thlen zâwk ṭhîn.",
+   "bunglehchang": "2 KORINTH 7 Chang 10 MIZOVBSI" 
+},
+{ 
+   "number": "67",
+   "mizobible": "i ro awmna apiangah i rilru pawh a awm ang.",
+   "bunglehchang": "Matthaia 6 Chang 21 MIZOVBSI" 
+},
+{ 
+   "number": "68",
+   "mizobible": "Aw ka nunna, engah nge i kun reng? Engah nge ka chhûngah hian i buai ni? Pathian beisei rawh; amah chu ka la fak dâwn si a, Ka hmêl tidamtu leh ka Pathian chu.",
+   "bunglehchang": "SAM 42 Chang 11 MIZOVBSI" 
+},
+{ 
+   "number": "69",
+   "mizobible": "Naupang chu a kalna âwm kawngah chuan zirtîr ula, A upat hun pawhin a thlah lo vang.",
+   "bunglehchang": "THUFINGTE 22 Chang 6 MIZOVBSI" 
+},
+{ 
+   "number": "70",
+   "mizobible": "Kan Pathian leh Pa mit hmuha sakhaw biak dân thianghlim leh sual tel lo chu hei hi a ni, fahrah leh hmeithaite an hrehawm laia kan leh, khawvêl bawlhhlawh kai lova insiam ṭhin hi.",
+   "bunglehchang": "JAKOBA 1 Chang 27 MIZOVBSI" 
+},
+{ 
+   "number": "72",
+   "mizobible": "A ram leh a felna chu zawng hmasa zâwk rawh u; tichuan, chûng zawng zawng chu a pêk belhchhah dâwn che u nia.",
+   "bunglehchang": "Matthaia 6 Chang 33 MIZOVBSI" 
+},
+{ 
+   "number": "73",
+   "mizobible": "In Pain mi a khawngaih angin mi khawngaih ve rawh u.",
+   "bunglehchang": "LUKA 6 Chang 36 MIZOVBSI" 
+},
+{ 
+   "number": "74",
+   "mizobible": "Naute u, Pathian hnên ata in ni a, chûng chu in ngam tawh e; nangmahnia awma chu khawvêla awma ai chuan a ropui zâwk avângin.",
+   "bunglehchang": "1 JOHANA 4 Chang 4 MIZOVBSI" 
+},
+{ 
+   "number": "76",
+   "mizobible": "Duh tak, sual chu zir suh la, ṭha chu zir zâwk ang che. Thil ṭha titu chu Pathian laka mi a ni; thil sual titu chuan Pathian a hmu ngai lo.",
+   "bunglehchang": "3 JOHANA 1 Chang 11 MIZOVBSI" 
+},
+{ 
+   "number": "77",
+   "mizobible": "engkim a tuar hrâm hrâm a, engkim a ring a, engkim a beisei a, engkim a tuar chhuak ṭhîn.",
+   "bunglehchang": "1 KORINTH 13 Chang 7 MIZOVBSI" 
+},
+{ 
+   "number": "78",
+   "mizobible": "Mahni ngaihin intifing suh la; Lalpa chu ṭih la, sual kalsan rawh.",
+   "bunglehchang": "THUFINGTE 3 Chang 7 MIZOVBSI" 
+},
+{ 
+   "number": "79",
+   "mizobible": "“Tu pawh Lalpa hming lam apiangte chu chhandamin an awm ang,” tih a ni a.",
+   "bunglehchang": "ROM 10 Chang 13 MIZOVBSI" 
+},
+{ 
+   "number": "80",
+   "mizobible": "Tin, khawngaihna zawng zawng Pathian, a chatuan ropuina chang tûra Kristaa kotu che u ngei chuan rei lo tê in tuar hnuan a siam ṭha famkimin, a tinghetin, a tichak ang che u.",
+   "bunglehchang": "1 PETERA 5 Chang 10 MIZOVBSI" 
+},
+{ 
+   "number": "82",
+   "mizobible": "Lalpa in Pathian chu in thinlung zawng zawngin, in rilru zawng zawngin, in chakna zawng zawngin in hmangaih tûr a ni.",
+   "bunglehchang": "DEUTERONOMY 6 Chang 5 MIZOVBSI" 
+},
+{ 
+   "number": "83",
+   "mizobible": "fel lohnaah a lâwm lo va, thutak erawh chu a lawmpui ṭhîn a;",
+   "bunglehchang": "1 KORINTH 13 Chang 6 MIZOVBSI" 
+},
+{ 
+   "number": "84",
+   "mizobible": "Ngawi ula, Pathian ka ni tih hi hre rawh u: Hnam tin zîngah chawimawiin ka awm ang a, leiah hian chawimawiin ka awm ang.",
+   "bunglehchang": "SAM 46 Chang 10 MIZOVBSI" 
+},
+{ 
+   "number": "85",
+   "mizobible": "Chung lama thil awmahte chuan in rilru nghat tlat rawh u, leia thil awmahte chuan nghat lovin.",
+   "bunglehchang": "KOLOSSA 3 Chang 2 MIZOVBSI" 
+},
+{ 
+   "number": "86",
+   "mizobible": "beiseina kawngah chuan lâwm ula; hrehawm tuarna kawngah chuan chhel ula, ṭawngṭaina kawngah chuan ṭawngṭai fan fan ula;",
+   "bunglehchang": "ROM 12 Chang 12 MIZOVBSI" 
+},
+{ 
+   "number": "87",
+   "mizobible": "Tu pawh tlêm te chunga rinawm chu tam tak chungah pawh a rinawm ṭhîn; tu pawh tlêm te chunga rinawm lo chu, tam tak chungah pawh a rinawm lo ṭhîn a ni.",
+   "bunglehchang": "LUKA 16 Chang 10 MIZOVBSI" 
+},
+{ 
+   "number": "88",
+   "mizobible": "Duhsakna hi bumna a ni a, hmêl ṭhatna chu eng mah lo a ni; Lalpa ṭihtu hmeichhia erawh chu fak a ni ang.",
+   "bunglehchang": "THUFINGTE 31 Chang 30 MIZOVBSI" 
+},
+{ 
+   "number": "89",
+   "mizobible": "Tûn ang huna i ngawih mai mai chuan, hmun danga Juda-te tân himna leh chhuahna a lo awm pawhin, nang leh i pa chhûngte chu kan boral ang. Lal nihna i lo chan hi hetih hun atân ngei hian a ni dâwn lâwm ni?” va ti tûrin a tîr a.",
+   "bunglehchang": "ESTHERI 4 Chang 14 MIZOVBSI" 
+},
+{ 
+   "number": "92",
+   "mizobible": "Nangmahnia thil ṭha ti ṭantu khân Isua Krista ni thlengin a tifamkim zêl dawn, chu ngei chu ka ring tlat si a.",
+   "bunglehchang": "PHILIPPI 1 Chang 6 MIZOVBSI" 
+},
+{ 
+   "number": "94",
+   "mizobible": "a thisen avângin amahah chuan kan tlanna kan nei a ni - a khawngaihna ngahzia ang zêla kan bawhchhiatnate ngaihdamna chu.",
+   "bunglehchang": "EPHESI 1 Chang 7 MIZOVBSI" 
+},
+{ 
+   "number": "95",
+   "mizobible": "Chutichuan, chhûmpui nasa tak ang thlîrtuten min hual vêl avâng hian, min tihnawk apiang leh sual keimahnia bet tlat chu i dah ve ang u; tin, Isua, kan rinna siamtu leh tifamkimtu lam chu enin, kan hmaa intlânsiakna tûr awmah hian chhel takin i tlân zêl ang u. Ani chuan a hmaa hlimna awm avâng chuan, mualphona chu ngainêpin kraws chu a tuar a, Pathian lalṭhutphah ding lamah khian a han ṭhu ta a.",
+   "bunglehchang": "HEBRAI 12 Chang 2 MIZOVBSI" 
+},
+{ 
+   "number": "96",
+   "mizobible": "Tichuan, Pathian thlamuanna, rilru rêng rênga hriat sên loh khân, in thinlung leh in ngaihtuahnate chu Krista Isuaah chuan a vênsak ang che u.",
+   "bunglehchang": "PHILIPPI 4 Chang 7 MIZOVBSI" 
+},
+{ 
+   "number": "98",
+   "mizobible": "Ngai teh u, chinghne zînga berâm awm angin ka tirh che u hi; chutichuan, rûl anga finga, ṭhuro anga pawi khawih lovin awm ang che u.",
+   "bunglehchang": "Matthaia 10 Chang 16 MIZOVBSI" 
+},
+{ 
+   "number": "99",
+   "mizobible": "Mi tichaktuah chuan engkim ka ti thei a ni.",
+   "bunglehchang": "PHILIPPI 4 Chang 13 MIZOVBSI" 
+},
+{ 
+   "number": "100",
+   "mizobible": "Sakhi, luite tui châka a thaw huam huam ang hian, Aw Pathian, ka nunna hi nangmah châkin a thaw huam huam a ni.",
+   "bunglehchang": "SAM 42 Chang 1 MIZOVBSI" 
+}]
+const mizo_bible = bible[Math.floor(Math.random() * bible.length)]
+const thuziak = `*Quote:* ${bible.mizobible}\n\n*${bible.bunglehchang}*`
+return replymizobiblequotes(thuziak)              
+              break
 case 'thuril': {
                 let mizoquotes = await fetchJson('https://raw.githubusercontent.com/HBMods-OFC/Media/main/QuotesMizo/mizoquotes.json')
                 let random = mizoquotes[Math.floor(Math.random() * mizoquotes.length)]
