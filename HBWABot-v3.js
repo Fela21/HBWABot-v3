@@ -3051,7 +3051,8 @@ maker.textpro("https://textpro.me/create-logo-style-marvel-studios-ver-metal-972
    break
 
 case 'bible': case 'bq': case 'bible-quotes': 
-const bible =[ "Chutichuan, kan Lalpa Isua Krista Pathian leh a Pa chu, thinlung hmun khat leh inthuruala kan chawimawi theihna tûrin, chhelna leh thlamuanna Pathian chuan, Krista Isua sawi angin rilru hmun khat pu tawnin awmtîr che u rawh se.\n\nROM 15:5-6 MIZOVBSI",
+const bible = [ 
+ "Chutichuan, kan Lalpa Isua Krista Pathian leh a Pa chu, thinlung hmun khat leh inthuruala kan chawimawi theihna tûrin, chhelna leh thlamuanna Pathian chuan, Krista Isua sawi angin rilru hmun khat pu tawnin awmtîr che u rawh se.\n\nROM 15:5-6 MIZOVBSI",
  "Chuvâng chuan Krista chu rinna avânga in thinlunga a chên theih nân, a ropuina ngahzia ang zêlin, a Thlarau zârah mihring chhûngnung lamah chuan thiltihtheihnaa tihchakin a awmtîr theihna tûr che uin, Pa, lei leh vâna chhûngkaw tinrêng hming chawi chhana hmaah chuan ka ṭhingṭhi ṭhîn a; chutichuan, Pathian famkimna tinrêng tluka tihkhaha in awm theih nân, nangni hmangaihnaa zung kai leh nghahchhan neia awmin, mi thianghlim zawng zawng nên chuan a zauzia te, a seizia te, a sânzia te, a thûkzia te hriat chian theihna leh, Krista hmangaihna hriat phâk loh hriat theihna in nei thei ang.\n\nEPHESI 3:14-19 MIZOVBSI",
  "Chuvâng chuan Krista chu rinna avânga in thinlunga a chên theih nân, a ropuina ngahzia ang zêlin, a Thlarau zârah mihring chhûngnung lamah chuan thiltihtheihnaa tihchakin a awmtîr theihna tûr che uin, Pa, lei leh vâna chhûngkaw tinrêng hming chawi chhana hmaah chuan ka ṭhingṭhi ṭhîn a; chutichuan, Pathian famkimna tinrêng tluka tihkhaha in awm theih nân, nangni hmangaihnaa zung kai leh nghahchhan neia awmin, mi thianghlim zawng zawng nên chuan a zauzia te, a seizia te, a sânzia te, a thûkzia te hriat chian theihna leh, Krista hmangaihna hriat phâk loh hriat theihna in nei thei ang.\n\nEPHESI 3:14-19 MIZOVBSI",
  "Nimahsela, kei chuan i chakna thu hi hlaah ka sa ang a; A ni, zîngah chuan i ngilneihna thu hi hlim takin hlaah ka sa ang; Nang chu ka kulhbîng sâng, Ka mangan nia ka inhumhimna i ni si ṭhîn a.\n\nSAM 59:16 MIZOVBSI",
@@ -3155,7 +3156,7 @@ const bible =[ "Chutichuan, kan Lalpa Isua Krista Pathian leh a Pa chu, thinlung
    "Sakhi, luite tui châka a thaw huam huam ang hian, Aw Pathian, ka nunna hi nangmah châkin a thaw huam huam a ni.\n\nSAM 42 Chang 1 MIZOVBSI"
 ]
 const mizo_bible = bible[Math.floor(Math.random() * bible.length)]
-const thuziak = `*${bible}*`
+const thuziak = `*${mizo_bible}*`
 return replymizobiblequotes(thuziak)              
               break
 case 'thuril': {
